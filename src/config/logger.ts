@@ -9,7 +9,7 @@ const logger = winston.createLogger({
     level: "info",
     defaultMeta: {
         // log for which serviceName
-        serviceName: "mern-auth-service",
+        serviceName: "catalog-service",
     },
 
     // If i set format here , it work as globallly , for all type of transport

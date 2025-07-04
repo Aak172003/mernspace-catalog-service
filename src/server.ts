@@ -1,18 +1,13 @@
-import { ConfigVariables } from "./config";
 import app from "./app";
 import logger from "./config/logger";
-
-console.log(ConfigVariables.PORT);
+import config from "config";
 
 const startServer = () => {
-    const PORT = ConfigVariables.PORT;
+    const PORT: number = config.get("server.port") || 5503;
+
     try {
         app.listen(PORT, () => {
             logger.info("Server Listening on port", { port: PORT });
-            logger.error("We found error ");
-
-            // This logger will not see because i choose info for console transport
-            logger.silly("Hi silly logger");
             console.log(`Listening on port ${PORT}`);
         });
     } catch (error) {
