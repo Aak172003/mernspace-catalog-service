@@ -1,10 +1,10 @@
 {
-    "name": "mern_auth_service",
+    "name": "catalog_service",
     "version": "1.0.0",
-    "description": "The user management service",
+    "description": "The catalog management service",
     "main": "index.js",
     "scripts": {
-        "dev": "nodemon src/server.ts",
+        "dev": "cross-env NODE_ENV=development nodemon src/server.ts",
         "format:check": "prettier . --check",
         "format:fix": "prettier . --write",
         "lint:check": "eslint .",
@@ -16,6 +16,7 @@
     "license": "ISC",
     "devDependencies": {
         "@eslint/js": "^9.28.0",
+        "@types/config": "^3.3.5",
         "@types/express": "^5.0.2",
         "@types/http-errors": "^2.0.4",
         "@types/jest": "^29.5.14",
@@ -42,8 +43,12 @@
         ]
     },
     "dependencies": {
+        "config": "^4.0.0",
+        "cross-env": "^7.0.3",
         "express": "^5.1.0",
         "http-errors": "^2.0.0",
+        "js-yaml": "^4.1.0",
+        "uuid": "^11.1.0",
         "winston": "^3.17.0"
     }
 }
