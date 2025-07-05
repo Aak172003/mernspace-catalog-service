@@ -1,0 +1,3 @@
+server:
+    port: 5503
+    node_env: developement

@@ -15,7 +15,7 @@ export const globalErrorHandler = (
     const statusCode = err.status || 500;
 
     // Here we are checking if the environment is prod or not
-    const isProduction = process.env.NODE_ENV === "prod";
+    const isProduction = process.env.NODE_ENV === "production";
     const message = isProduction ? "Internal Server Error" : err.message;
 
     logger.error(err.message, {
