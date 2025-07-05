@@ -21,7 +21,7 @@ const logger = winston.createLogger({
         winston.format.json(),
     ),
 
-    // transport -> means where we want to store logs inside database transport , file transport etc
+    // Transport -> means where we want to store logs inside database transport , file transport etc
     // Transport -> basically a storage of logs
 
     // if we don't give level , so it take level of parent , but if we give so it work on own define logger level
@@ -40,25 +40,19 @@ const logger = winston.createLogger({
             filename: "info.log",
 
             level: "info",
-            // if silent true , then no console logs create Which means silent is true  in test mode
-            silent: ConfigVariables.NODE_ENV === "test",
         }),
 
         new winston.transports.File({
             dirname: "logs",
             filename: "error.log",
             level: "error",
-            // if silent true , then no console logs create Which means silent is true  in test mode
-            silent: ConfigVariables.NODE_ENV === "test",
         }),
 
         // This is for console logs
         new winston.transports.Console({
-            level: "info",
+            level: "debug",
             // I commented this formet because i set format globally which means all tarnsport will follow root format
             // format: winston.format.json(),
-            // if silent true , then no console logs create Which means silent is true  in test mode
-            silent: ConfigVariables.NODE_ENV === "test",
         }),
     ],
 });
