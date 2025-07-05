@@ -1,11 +1,16 @@
 import app from "./app";
+import initDbConnection from "./config/dbConnect";
 import logger from "./config/logger";
 import config from "config";
 
-const startServer = () => {
+const startServer = async () => {
     const PORT: number = config.get("server.port") ?? 5503;
 
     try {
+        // Initialize database connection
+        console.log("Initializing database connection");
+        await initDbConnection();
+        console.log("Database connected successfully");
         app.listen(PORT, () => {
             logger.info("Server Listening on port", { port: PORT });
             logger.debug("Server configuration", {
@@ -15,8 +20,8 @@ const startServer = () => {
         });
     } catch (error) {
         logger.error("Error starting server", { error });
-        process.exit(1);
+        logger.on("finish", () => process.exit(1));
     }
 };
 
-startServer();
+void startServer();
