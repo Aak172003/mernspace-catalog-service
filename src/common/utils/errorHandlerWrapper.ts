@@ -8,7 +8,12 @@ export const asyncWrapper = (requestHandler: RequestHandler) => {
             if (error instanceof Error) {
                 next(createHttpError(500, error.message));
             }
-            return next(createHttpError(500, "Internal Server Error"));
+            return next(
+                createHttpError(
+                    500,
+                    "Internal Server Error Found in Async Wrapper",
+                ),
+            );
         });
     };
 };
