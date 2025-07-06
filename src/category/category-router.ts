@@ -25,8 +25,8 @@ router.post(
     //     await categoryController.create(req, res, next);
     // },
 
-    // Using async wrapper
-    asyncWrapper(categoryController.create),
+    // Using async wrapper with proper binding
+    asyncWrapper((req, res, next) => categoryController.create(req, res, next)),
 );
 
 export default router;
