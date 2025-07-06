@@ -1,26 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-
-interface PriceConfiguration {
-    [key: string]: {
-        // Union
-        priceType: "base" | "aditional";
-        availableOptions: string[];
-    };
-}
-
-interface Attribute {
-    name: string;
-    // widget type means the type of the widget that will be used to display the attribute
-    widgetType: "switch" | "radio";
-    defaultValue: string;
-    availableOptions: string[];
-}
-
-export interface Category {
-    name: string;
-    priceConfiguration: PriceConfiguration;
-    attributes: Attribute[];
-}
+import { Attribute, Category, PriceConfiguration } from "./category-types";
 
 const priceConfigurationSchema = new Schema<PriceConfiguration>({
     priceType: {
