@@ -1,0 +1,3 @@
+Global error handler only catch synchronous error but now asynchronous 
+
+so if we want to pass asynchronous error to global error handler then we need to use next(error) as a middleware

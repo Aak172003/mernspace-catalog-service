@@ -3,3 +3,5 @@ server:
     node_env: development
 database:
     url: mongodb://localhost:27017/catalog?authSource=admin&w=1
+auth:
+    jwksUri: http://localhost:5501/.well-known/jwks.json
